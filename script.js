@@ -16,7 +16,13 @@ function createGrid(gridValue) {
 // Default Grid of 16x16 
 createGrid(16);
 
-// Function for color change 
+// Function for color change (Rainbow)
+// Use math.floor to generate random value btween 1-255
+function randomRGB() {
+    return Math.floor(Math.random() * 255)
+}
+console.log(randomRGB())
+
 function hover() {
     // Selector to contain all cells in a nodelist 
     const cells = document.querySelectorAll('.cell');
@@ -26,7 +32,7 @@ function hover() {
         cell.addEventListener('mouseenter', (e) => {
             // e references event and .target property returns element that triggered event
             // Adding style to whatever element is returned from EL 
-            e.target.style.backgroundColor = 'red'
+            e.target.style.backgroundColor = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`
         })
     })
 }
@@ -69,6 +75,6 @@ function promptNewGrid() {
 }
 
 /* Current
-    - Attempting Step 5 
+    - Attempting to make color change RGB
 */
 
