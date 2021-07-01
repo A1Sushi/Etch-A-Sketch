@@ -57,54 +57,33 @@ function gridReset() {
 }
 
 // Prompt Function
-    // while loop and set to true *
-    // Use if statement to re-prompt if certain conditions are met *
-    // use else statment for >0 && <100 *
-    // Change value to number *
-    // Don't use Number() on prompt because it will convert null to 0 *
+    // while loop is true run the following conditions *
+    // Convert value entered into prompt as number since it is stored as a string *
+    // if (...) *
+        // user enters a number that is less than 0 or greater than 100 * 
+        // user enters something that is NaN (non-numbers, empty-strings = NaN) *
+        // continue loop by re-prompting until conditions are false *
+    // else if (gridValue is user cancels - should return null) *
+        // Do nothing *
+    // else (values between 0-100) *  
+        // return the grid value *
 
 function promptNewGrid() {  
     while (true) {
-        let gridValue = prompt("Enter new Grid Dimension!", "0-100"); 
-        // If num is less than 0 or greater than 100 or null or empty; re-prompt 
-        if (gridValue < 0 || gridValue > 100 || gridValue === NaN || gridValue === "") {
+        let gridValue = prompt("Enter new Grid Dimension!"); 
+        // If input is less than 0 or greater than 100 or empty or NaN; re-prompt 
+        if (gridValue < 0 || gridValue > 100 || gridValue === "" || isNaN(gridValue)) {
         // Continue the Loop by Re-Prompting 
             continue;
-        // else prompt and return number
-        } else {
-            return newGridValue = parseInt(gridValue, 10);
-        }
+        // cancelling should return nothing 
+        } else if (gridValue === null) {
+            return;
+        } return newGridValue = parseInt(gridValue, 10);
     }
 }
 
-// Prompt Function 2
-    // Use if statement to accept limit for max of 100 x 100 
-    // use else statment for anything negative or over 100
-    // Change value to number
-    // Issue is after reprompt it doesn't return the value, maybe use a loop
-    // Can either use loops or recursions (calling function inside function)
-
-// function promptNewGrid() {
-//     while (true) prompt:
-//     { let gridChange = Number(prompt("Enter new Grid Dimension!"));
-//         // If num is from 0-100 return value 
-//         if (gridChange >= 0 && gridChange <= 100) {
-//             console.log(typeof gridChange);
-//             return gridChange;
-//         // If canceled just end function 
-//         } else if (gridChange === null) {
-//             return; 
-//         // else go to prompt label and re-prompt until condition is satisfied 
-//         } else {
-//             break prompt;   
-//         }
-//     }
-// }
-
-console.log(promptNewGrid())
-
 /* Current
     - Time to refractor the code a bit to clean up and move on 
-    - Trying to get re-prompt to return a value once right condition is met
+    - Add prompt function to EL 
 */
 
