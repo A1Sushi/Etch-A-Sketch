@@ -20,6 +20,20 @@
         - Maybe should add something that removes divs in EL *
 */
 
+// Individual Functions inside EL button click 
+
+// Prompt Function
+    // while loop is true run the following conditions *
+    // Convert value entered into prompt as number since it is stored as a string *
+    // if (...) *
+        // user enters a number that is less than 0 or greater than 100 * 
+        // user enters something that is NaN (non-numbers, empty-strings = NaN) *
+        // continue loop by re-prompting until conditions are false *
+    // else if (gridValue is user cancels - should return null) *
+        // Do nothing *
+    // else (values between 0-100) *  
+        // return the grid value *
+
 /* Questions 
 1. I have the height and width to 500px max for the container so it shouldn't change wrap during resizing, but the cells won't fill the container when the dimensions are less than or greater than 16 rows/columns. 
     - For that case you also need to adjust your Javascript. At the moment you create 256 squares to fill the container. When you change your dimension to 15x15 or 17x17 you also need to change the amount of squares you create.

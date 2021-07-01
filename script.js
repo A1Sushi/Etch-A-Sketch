@@ -1,9 +1,9 @@
 // Function to create a new grid dimension by creating square 'divs'
-function createGrid(gridChange) {
+function createGrid(gridValue) {
     // Adding container selector to variable 
     const container = document.querySelector('#container');
     // loop to create multiple divs 
-    for (let i = 1; i <= gridChange * gridChange; i++) {
+    for (let i = 1; i <= gridValue * gridValue; i++) {
         const content = document.createElement('div');
         // Add class name to each div based on # 
         content.classList = "cell " + i;
@@ -26,7 +26,7 @@ function hover() {
         cell.addEventListener('mouseenter', (e) => {
             // e references event and .target property returns element that triggered event
             // Adding style to whatever element is returned from EL 
-            e.target.style.backgroundColor = 'grey'
+            e.target.style.backgroundColor = 'red'
         })
     })
 }
@@ -36,54 +36,39 @@ const changeGrid = document.querySelector('#changeGrid');
 // EL to change grid size when button is clicked
 changeGrid.addEventListener('click', () => {
     // Prompt function to ask for new grid change dimensions
-    
-    // Reset the grid & recreat new grid & add hover feature 
+    promptNewGrid()
+    // Use Reset Function to clear previous grid & recreate new grid with add hover function
     gridReset() 
-    
 })
 
-// Can probably make extra functions and call them inside EL
-// Add whatever resets the grid and adds color function + new dimensions
 function gridReset() {
     // Use forEach to iterate and remove all previous div cells 
     const cells = document.querySelectorAll('.cell');
     cells.forEach(cell => cell.remove());
     // Change Column + Row dimensions using result of prompt 
-    container.style.gridTemplateColumns = `repeat(${newGridValue }, 1fr)`;
-    container.style.gridTemplateRows = `repeat(${newGridValue }, 1fr)`;
+    container.style.gridTemplateColumns = `repeat(${newGridValue}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${newGridValue}, 1fr)`;
     // Add new loop to create new square divs & add hover function
-    createGrid(gridChange); 
-    hover();
+    createGrid(newGridValue); 
 }
-
-// Prompt Function
-    // while loop is true run the following conditions *
-    // Convert value entered into prompt as number since it is stored as a string *
-    // if (...) *
-        // user enters a number that is less than 0 or greater than 100 * 
-        // user enters something that is NaN (non-numbers, empty-strings = NaN) *
-        // continue loop by re-prompting until conditions are false *
-    // else if (gridValue is user cancels - should return null) *
-        // Do nothing *
-    // else (values between 0-100) *  
-        // return the grid value *
 
 function promptNewGrid() {  
     while (true) {
-        let gridValue = prompt("Enter new Grid Dimension!"); 
-        // If input is less than 0 or greater than 100 or empty or NaN; re-prompt 
-        if (gridValue < 0 || gridValue > 100 || gridValue === "" || isNaN(gridValue)) {
-        // Continue the Loop by Re-Prompting 
-            continue;
+        let gridValue = prompt("Enter new Grid Dimension!", "Between 0-50"); 
         // cancelling should return nothing 
-        } else if (gridValue === null) {
-            return;
-        } return newGridValue = parseInt(gridValue, 10);
+        if (gridValue === null) {
+        // Continue the Loop by Re-Prompting 
+            return null
+        // If input is less than 0 or greater than 50 or empty (if there is only spaces trim it) or NaN; re-prompt 
+        } else if (gridValue < 0 || gridValue > 50 || gridValue.trim() === "" || isNaN(gridValue)) {
+            continue;
+        // else return the value of 0-50 as a number 
+        } else 
+        return newGridValue = parseInt(gridValue, 10);
     }
 }
 
 /* Current
-    - Time to refractor the code a bit to clean up and move on 
-    - Add prompt function to EL 
+    - Attempting Step 5 
 */
 
