@@ -1,3 +1,5 @@
+Pseudo-Code + Extra Comments 
+
 /* Create a webpage with a 16x16 grid of square divs using JS
     1. Create "container" div in html *
     2. Create a div element inside the container & loop 16 times *
