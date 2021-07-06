@@ -55,11 +55,13 @@ table {
 	/* Setting the grid of the box to be 16 x 16  */
 	grid-template-columns: repeat(16, 1fr);
 	grid-template-rows: repeat(16, 1fr);
-	margin: 10%;
+	margin: 0 auto;
+	/* margin: 10%; */
 	border: 1px solid black;
 	/* Setting the width and height so that it doesn't shrink  */
 	height: 500px;
 	width: 500px;
+	margin-top: 100px;
 }
 
 /* Individual cells or Children */
@@ -68,3 +70,13 @@ table {
 	height: auto;
 	width: auto;
 } 
+
+/* Change Grid Button  */
+#changeGrid {
+	display: grid;
+}
+
+/* background color */
+body {
+	background-color: lightgrey
+}

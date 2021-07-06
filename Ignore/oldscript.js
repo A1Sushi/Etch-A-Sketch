@@ -163,12 +163,8 @@ function hover() {
 
 /* 
 Current
-- Step 5: Try having each pass just add another 10% of black to it so that only after 10 passes is the square completely black.
 - Working on hover function, going to be repeitive but you can simplifiy after its working 
 - Also try and write pseudocode as much as you can to keep yourself moving
 - What you are doing is a harder version, if you want to try go ahead, but also make separte buttons after! 
-
-Help
 - My main suggestion is to break this down into steps. Like: first, we need to get the current color of the cell. Next we need to figure out what the next shade is. And so on. Then try to translate that into code.
-- Hey, I'm currently still struggling on the Etch-a-sketch final part where we add 10% shade of black each mouse hover. So currently my function adds a random RGB value to a div if the value has no colour. My goal is to add 10% shade if the the background colour of the div is a random RGB value, then add a black shade of 20% black if the current div is 10% black, etc. So far with some help, the problem was broken down where I need to figure out a way to return the value of the current colour of the cell before I add the next shade, but I'm still struggling to get past that. 
 */
