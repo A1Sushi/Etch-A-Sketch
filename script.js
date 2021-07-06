@@ -16,30 +16,13 @@ function createGrid(gridValue) {
 // Default Grid of 16x16 
 createGrid(16);
 
-// Future Color Selections 
 // Function for color change (Rainbow)
 function randomRGB() {
     // Use math.floor to generate random value btween 1-255
     return Math.floor(Math.random() * 255)
 }
 
-// Function for 10% Black Increments 
-// Figure out how to get 0.1 to increase each time it is used 
-    // Maybe with a loop
-function blackShade() {
-    // 10% black, add 0.1 each time to increase by 10%
-        // 'rgba(0, 0, 0, 0.1)' 
-    for (i = 0.1; i <= 1.0; i+= 0.1) {
-        // return rgba(0, 0, 0, i); 
-        console.log (i)
-        // console.log(i);
-    }
-}
-console.log(blackShade())
-
-// Testing using red for now 
 // Try simplyifing the if else statement to something easier to test 
-// Split up 2 cells.forEach and make a conditional inside hover function 
 function hover() {
     // Selector to contain all cells in a nodelist 
     const cells = document.querySelectorAll('.cell');
@@ -51,18 +34,57 @@ function hover() {
             // e references event and .target property returns element that triggered event
             // if cell is white, add RGB color to the background
             if (e.target.style.backgroundColor === "") {
-                // console.log(e.target.style.backgroundColor)
-                e.target.style.backgroundColor = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`;
-                // console.log(e.target.style.backgroundColor)
-            // else add 10% black to the color 
-            } else {
-                e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)' 
-                // console.log(e.target.style.backgroundColor)
+                console.log(e.target.style.backgroundColor)
+                e.target.style.backgroundColor = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`
+            // else if (square is 100% black)
+            } else if (e.target.style.backgroundColor === 'rgb(0, 0, 0)') {
+                console.log(e.target.style.backgroundColor)
+                e.target.style.backgroundColor = 'rgb(0, 0, 0, 1)';
+            // else if (div has 90% black) add 100% black
+            } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.9)') { 
+                console.log(e.target.style.backgroundColor)
+                e.target.style.backgroundColor = 'rgba(0, 0, 0, 1)'
+            // else if (square is 80% black) add 90% black 
+            } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.8)') { 
+                console.log(e.target.style.backgroundColor)
+                e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.9)'
+            // else if (square is 70% black) add 80% black 
+            } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.7)') {
+                console.log(e.target.style.backgroundColor)
+                e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'
+            // else if (square is 60% black) add 70% black 
+            } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.6)') {
+                console.log(e.target.style.backgroundColor)
+                e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'
+            // else if (square is 50% black) add 60% black 
+            } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.5)') {
+                console.log(e.target.style.backgroundColor)
+                e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.6)'
+            // else if (square is 40% black) add 50% black 
+            } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.4)') {
+                console.log(e.target.style.backgroundColor)
+                e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
+            // else if (square is 30% black) add 40% black 
+            } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.3)') {
+                console.log(e.target.style.backgroundColor)
+                e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.4)'
+            // else if (square is 20% black) add 30% black 
+            } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.2)') {
+                console.log(e.target.style.backgroundColor)
+                e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.3)'
+            // else if (square is 10% black) add 20% black 
+            } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.1)') {
+                console.log(e.target.style.backgroundColor)
+                e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.2)'
+            // else (square is colored) add 10% black 
+            }  else {
+                console.log(e.target.style.backgroundColor)
+                e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'
             }
+            console.log(e.target.style.backgroundColor)
         })
     })
 }
-
 
 // Select change grid button and place in variable 
 const changeGrid = document.querySelector('#changeGrid');
@@ -100,13 +122,3 @@ function promptNewGrid() {
         return newGridValue = parseInt(gridValue, 10);
     }
 }
-
-/* 
-Current
-- Step 5: Try having each pass just add another 10% of black to it so that only after 10 passes is the square completely black.
-- Working on hover function 
-
-Question
-- 
-*/
-

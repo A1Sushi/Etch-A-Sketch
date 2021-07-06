@@ -22,19 +22,85 @@ function randomRGB() {
     return Math.floor(Math.random() * 255)
 }
 
-function hover() {
-    // Selector to contain all cells in a nodelist 
-    const cells = document.querySelectorAll('.cell');
-    // Use forEach method to iterate through each cell
-    cells.forEach((cell) => {
-        // and for each one we add a Event Listener  
-        cell.addEventListener('mouseenter', (e) => {
-            // e references event and .target property returns element that triggered event
-            // Adding style to whatever element is returned from EL 
-            e.target.style.backgroundColor = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`
+// Function for 10% Black Increments 
+// Figure out how to get 0.1 to increase each time it is used 
+// Maybe with a loop
+// function blackShade() {
+//     // 10% black, add 0.1 each time to increase by 10%
+//         // 'rgba(0, 0, 0, 0.1)' 
+//     // Maybe use if statement to determine when to add 1 
+//     for (value = 1; value <= 10; value++) {
+//             console.log(value++); 
+//         }
+//         console.log(value)
+// }
+// console.log(blackShade())
+
+// Try simplyifing the if else statement to something easier to test 
+// maybe doing the reverse so that it evaluates the 0.10 first and etc.
+    // This works just do it for shades with e.target === RGB value being last
+    function hover() {
+        // Selector to contain all cells in a nodelist 
+        const cells = document.querySelectorAll('.cell');
+        // Add e.target to a variable 
+        // Use forEach method to iterate through each cell
+        cells.forEach((cell) => {
+            // and for each one we add a Event Listener  
+            cell.addEventListener('mouseenter', (e) => {
+                // e references event and .target property returns element that triggered event
+                // if cell is white, add RGB color to the background
+                if (e.target.style.backgroundColor === "") {
+                    console.log(e.target.style.backgroundColor)
+                    e.target.style.backgroundColor = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`
+                // else if (square is 100% black)
+                } else if (e.target.style.backgroundColor === 'rgb(0, 0, 0)') {
+                    console.log(e.target.style.backgroundColor)
+                    e.target.style.backgroundColor = 'rgb(0, 0, 0, 1)';
+                // else if (div has 90% black) add 100% black
+                } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.9)') { 
+                    console.log(e.target.style.backgroundColor)
+                    e.target.style.backgroundColor = 'rgba(0, 0, 0, 1)'
+                // else if (square is 80% black) add 90% black 
+                } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.8)') { 
+                    console.log(e.target.style.backgroundColor)
+                    e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.9)'
+                // else if (square is 70% black) add 80% black 
+                } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.7)') {
+                    console.log(e.target.style.backgroundColor)
+                    e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'
+                // else if (square is 60% black) add 70% black 
+                } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.6)') {
+                    console.log(e.target.style.backgroundColor)
+                    e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'
+                // else if (square is 50% black) add 60% black 
+                } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.5)') {
+                    console.log(e.target.style.backgroundColor)
+                    e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.6)'
+                // else if (square is 40% black) add 50% black 
+                } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.4)') {
+                    console.log(e.target.style.backgroundColor)
+                    e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
+                // else if (square is 30% black) add 40% black 
+                } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.3)') {
+                    console.log(e.target.style.backgroundColor)
+                    e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.4)'
+                // else if (square is 20% black) add 30% black 
+                } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.2)') {
+                    console.log(e.target.style.backgroundColor)
+                    e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.3)'
+                // else if (square is 10% black) add 20% black 
+                } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.1)') {
+                    console.log(e.target.style.backgroundColor)
+                    e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.2)'
+                // else (square is colored) add 10% black 
+                }  else {
+                    console.log(e.target.style.backgroundColor)
+                    e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'
+                }
+                console.log(e.target.style.backgroundColor)
+            })
         })
-    })
-}
+    }
 
 // Select change grid button and place in variable 
 const changeGrid = document.querySelector('#changeGrid');
@@ -94,3 +160,15 @@ function hover() {
         })
     })
 }
+
+/* 
+Current
+- Step 5: Try having each pass just add another 10% of black to it so that only after 10 passes is the square completely black.
+- Working on hover function, going to be repeitive but you can simplifiy after its working 
+- Also try and write pseudocode as much as you can to keep yourself moving
+- What you are doing is a harder version, if you want to try go ahead, but also make separte buttons after! 
+
+Help
+- My main suggestion is to break this down into steps. Like: first, we need to get the current color of the cell. Next we need to figure out what the next shade is. And so on. Then try to translate that into code.
+- Hey, I'm currently still struggling on the Etch-a-sketch final part where we add 10% shade of black each mouse hover. So currently my function adds a random RGB value to a div if the value has no colour. My goal is to add 10% shade if the the background colour of the div is a random RGB value, then add a black shade of 20% black if the current div is 10% black, etc. So far with some help, the problem was broken down where I need to figure out a way to return the value of the current colour of the cell before I add the next shade, but I'm still struggling to get past that. 
+*/
