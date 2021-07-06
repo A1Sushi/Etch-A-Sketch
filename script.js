@@ -34,54 +34,41 @@ function hover() {
             // e references event and .target property returns element that triggered event
             // if cell is white, add RGB color to the background
             if (e.target.style.backgroundColor === "") {
-                console.log(e.target.style.backgroundColor)
                 e.target.style.backgroundColor = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`
             // else if (square is 100% black)
             } else if (e.target.style.backgroundColor === 'rgb(0, 0, 0)') {
-                console.log(e.target.style.backgroundColor)
                 e.target.style.backgroundColor = 'rgb(0, 0, 0, 1)';
             // else if (div has 90% black) add 100% black
             } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.9)') { 
-                console.log(e.target.style.backgroundColor)
                 e.target.style.backgroundColor = 'rgba(0, 0, 0, 1)'
             // else if (square is 80% black) add 90% black 
             } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.8)') { 
-                console.log(e.target.style.backgroundColor)
                 e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.9)'
             // else if (square is 70% black) add 80% black 
             } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.7)') {
-                console.log(e.target.style.backgroundColor)
                 e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'
             // else if (square is 60% black) add 70% black 
             } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.6)') {
-                console.log(e.target.style.backgroundColor)
                 e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'
             // else if (square is 50% black) add 60% black 
             } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.5)') {
-                console.log(e.target.style.backgroundColor)
                 e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.6)'
             // else if (square is 40% black) add 50% black 
             } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.4)') {
-                console.log(e.target.style.backgroundColor)
                 e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
             // else if (square is 30% black) add 40% black 
             } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.3)') {
-                console.log(e.target.style.backgroundColor)
                 e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.4)'
             // else if (square is 20% black) add 30% black 
             } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.2)') {
-                console.log(e.target.style.backgroundColor)
                 e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.3)'
             // else if (square is 10% black) add 20% black 
             } else if (e.target.style.backgroundColor === 'rgba(0, 0, 0, 0.1)') {
-                console.log(e.target.style.backgroundColor)
                 e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.2)'
             // else (square is colored) add 10% black 
             }  else {
-                console.log(e.target.style.backgroundColor)
                 e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'
             }
-            console.log(e.target.style.backgroundColor)
         })
     })
 }
